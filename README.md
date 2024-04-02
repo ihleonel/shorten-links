@@ -3,7 +3,7 @@
 Given a link as parameter, this page transform and shorten this link.
 
 ## Todo
-- [ ] Add eslint
+- [x] Add eslint
 - [ ] Add test
 - [ ] Add funcionalities
 - [ ] Add styles
