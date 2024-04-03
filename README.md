@@ -4,6 +4,6 @@ Given a link as parameter, this page transform and shorten this link.
 
 ## Todo
 - [x] Add eslint
-- [ ] Add test
+- [x] Add test
 - [ ] Add funcionalities
 - [ ] Add styles
