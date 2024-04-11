@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from 'vue'
 const form = reactive({
-  link: ''
+  link: null
 })
 const submit = () => {
   console.log(form.link)
