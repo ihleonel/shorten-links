@@ -7,3 +7,4 @@ Given a link as parameter, this page transform and shorten this link.
 - [x] Add test
 - [ ] Add funcionalities
 - [ ] Add styles
+- [x] Add django
