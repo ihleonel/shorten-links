@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .users import api as users_api
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/users/', users_api.index),
+    path('shorter-url/', views.shorter_url),
 ]
