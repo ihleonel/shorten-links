@@ -5,8 +5,12 @@ const form = reactive({
 })
 const submit = async () => {
   try {
-    const response = await fetch(`http://localhost:8000/shorter-url?link=${form.link}`, {
-      method: 'GET'
+    const response = await fetch('http://localhost:8000/shorter-url/', {
+      method: 'POST',
+      body: JSON.stringify(form),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
     const data = await response.json()
     console.log(data)

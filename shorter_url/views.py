@@ -3,13 +3,17 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 
 
-@api_view(['GET'])
+@api_view(['POST', 'OPTIONS'])
 def shorter_url(request: Request) -> Response:
-    query_params: dict = request.query_params.dict()
-    print(query_params)
-
-    data = {'url': f" modified {query_params['link']}"}
-    headers = {
-        'Access-Control-Allow-Origin': '*'
+    headers: dict = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
     }
+
+    if request.method == 'OPTIONS':
+        return Response(headers=headers)
+
+    link: str = request.data.get('link')
+    data: dict = {'shorted': link}
+
     return Response(data=data, headers=headers)
