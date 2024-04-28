@@ -21,7 +21,7 @@ const submit = async () => {
 </script>
 
 <template>
-  Shorten Link
+  <h2>Shorten Link</h2>
   <form @submit.prevent="submit">
     <input
       v-model="form.link"
