@@ -21,8 +21,8 @@ const submit = async () => {
 </script>
 
 <template>
-  <h2>Shorten Link</h2>
-  <form @submit.prevent="submit">
+  <section class="form">
+    <h2>Shorten Link</h2>
     <input
       v-model="form.link"
       type="text"
@@ -31,8 +31,9 @@ const submit = async () => {
     <button
       type="submit"
       title="Generate"
+      @click.prevent="submit"
     >
       Generate
     </button>
-  </form>
+  </section>
 </template>
