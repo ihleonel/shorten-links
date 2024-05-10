@@ -21,19 +21,24 @@ const submit = async () => {
 </script>
 
 <template>
-  <section class="form">
-    <h2>Shorten Link</h2>
-    <input
-      v-model="form.link"
-      type="text"
-      placeholder="Insert link"
-    />
-    <button
-      type="submit"
-      title="Generate"
-      @click.prevent="submit"
-    >
-      Generate
-    </button>
-  </section>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="title">Shorten Link</h1>
+      <input
+        v-model="form.link"
+        class="input"
+        type="text"
+        placeholder="Insert link"
+      />
+      <button
+        class="submit"
+        type="submit"
+        title="Generate"
+        @click.prevent="submit"
+      >
+        Generate
+      </button>
+    </div>
+  </div>
+
 </template>
