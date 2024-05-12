@@ -1,21 +1,26 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 const form = reactive({
   link: null
 })
+
+const data = ref(null)
+const isLoading = ref(false)
 const submit = async () => {
+  isLoading.value = true
   try {
-    const response = await fetch('http://localhost:8000/shorter-url/', {
+    const response = await fetch('http://localhost:8000/shorter-url', {
       method: 'POST',
       body: JSON.stringify(form),
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    const data = await response.json()
-    console.log(data)
+    data.value = await response.json()
   } catch {
     console.log('error')
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -27,17 +32,25 @@ const submit = async () => {
       <input
         v-model="form.link"
         class="input"
-        type="text"
+        type="search"
         placeholder="Insert link"
       />
       <button
         class="submit"
         type="submit"
-        title="Generate"
+        title="Shorten"
         @click.prevent="submit"
       >
-        Generate
+        Shorten
       </button>
+      <div class="result">
+        <span v-if="isLoading">
+          Shortening ...
+        </span>
+        <span v-else>
+          {{ data?.shorted }}
+        </span>
+      </div>
     </div>
   </div>
 
