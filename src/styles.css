@@ -10,6 +10,7 @@
 }
 
 body {
+  font-family: 'Montserrat Variable', sans-serif;
   background: var(--card-color);
   color: #ffffff;
   min-height: 100vh;
@@ -27,7 +28,6 @@ body {
   position: relative;
 }
 .card-body {
-  box-sizing: border-box;
   background: var(--card-color);
   display: flex;
   flex-direction: column;

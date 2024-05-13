@@ -28,12 +28,12 @@ const submit = async () => {
 <template>
   <div class="card">
     <div class="card-body">
-      <h1 class="title">Shorten Link</h1>
+      <h1 class="title">Shorten URL</h1>
       <input
         v-model="form.link"
         class="input"
         type="search"
-        placeholder="Insert link"
+        placeholder="Insert URL"
       />
       <button
         class="submit"
