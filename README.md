@@ -8,3 +8,5 @@ Given a link as parameter, this page transform and shorten this link.
 - [ ] Add funcionalities
 - [ ] Add styles
 - [x] Add django
+- [ ] Dockering this application
+- [ ] Feedback errors
