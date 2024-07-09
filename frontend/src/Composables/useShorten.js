@@ -21,7 +21,7 @@ const useShorten = () => {
         }
       })
       const json = await response.json()
-      console.log(response)
+
       if (response.status === 400) {
         error.value = json.errors
       }
