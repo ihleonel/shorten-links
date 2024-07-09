@@ -5,11 +5,10 @@ const form = reactive({
   link: null
 })
 
-const { shortener, isLoading } = useShorten()
+const { data, isLoading, error, shortener } = useShorten()
 
-const data = ref(null)
-const submit = async () => {
-  data.value = await shortener('http://localhost:8000/shorter-url', form)
+const submit = () => {
+  shortener('http://localhost:8000/shorter-url', form)
 }
 </script>
 
@@ -23,6 +22,7 @@ const submit = async () => {
         type="search"
         placeholder="Insert URL"
       />
+      <small>{{ error?.link }}</small>
       <button
         class="submit"
         type="submit"

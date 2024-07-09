@@ -1,18 +1,21 @@
 from rest_framework.request import Request
 
 class Validator():
-    data = None
-    errors = []
 
     def __init__(self, request: Request) -> None:
-        self.request = request
+        self.data = dict()
+        self.errors = dict()
+        self.valid = dict()
+
+        self.data = request.data
 
     def is_valid(self) -> bool:
-        self.data = self.request.data.get('link', None)
-        if self.data is None:
-            self.errors.append('Link is required')
-        elif self.data.strip() == '':
-            self.errors.append('Link is not valid')
+        if self.data.get('link', None) is None:
+            self.errors['link'] = 'Link is required'
+        elif self.data['link'].strip() == '':
+            self.errors['link'] = 'Link is not valid'
+
+        self.valid['link'] = self.data['link']
 
         return len(self.errors) == 0
 

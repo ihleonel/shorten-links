@@ -2,10 +2,16 @@ import { ref } from 'vue'
 
 const useShorten = () => {
   const error = ref(null)
+  const data = ref(null)
   const isLoading = ref(false)
+
   const shortener = async (url, payload) => {
+    if (isLoading.value === true) {
+      return
+    }
+    error.value = null
+    data.value = null
     isLoading.value = true
-    let data = null
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -14,15 +20,21 @@ const useShorten = () => {
           'Content-Type': 'application/json'
         }
       })
-      data = await response.json()
-    } catch (e) {
-      error.value = e
+      const json = await response.json()
+      console.log(response)
+      if (response.status === 400) {
+        error.value = json.errors
+      }
+      if (response.status === 201) {
+        data.value = json
+      }
+    } catch (err) {
+      console.error(err)
     } finally {
       isLoading.value = false
     }
-    return data
   }
-  return { shortener, isLoading, error }
+  return { data, isLoading, error, shortener }
 }
 
 export default useShorten
