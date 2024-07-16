@@ -9,4 +9,4 @@ Given a link as parameter, this page transform and shorten this link.
 - [x] Add styles
 - [x] Add django
 - [x] Dockering this application
-- [ ] Feedback errors
+- [x] Feedback errors
