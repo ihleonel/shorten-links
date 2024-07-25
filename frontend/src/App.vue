@@ -20,11 +20,6 @@ const submit = () => {
       <h1 class="title">Shorten URL</h1>
       <InputText
         v-model="form.link"
-      />
-      <input
-        v-model="form.link"
-        class="input"
-        type="search"
         placeholder="Insert URL"
       />
       <small>{{ error?.link }}</small>
