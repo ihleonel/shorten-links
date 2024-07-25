@@ -21,8 +21,8 @@ const submit = () => {
       <InputText
         v-model="form.link"
         placeholder="Insert URL"
+        :error="error?.link"
       />
-      <small>{{ error?.link }}</small>
       <button
         class="submit"
         type="submit"
