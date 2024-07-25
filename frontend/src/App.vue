@@ -1,6 +1,8 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import useShorten from './Composables/useShorten'
+import InputText from './Components/InputText.vue';
+
 const form = reactive({
   link: null
 })
@@ -16,6 +18,9 @@ const submit = () => {
   <div class="card">
     <div class="card-body">
       <h1 class="title">Shorten URL</h1>
+      <InputText
+        v-model="form.link"
+      />
       <input
         v-model="form.link"
         class="input"
