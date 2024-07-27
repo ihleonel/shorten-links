@@ -25,5 +25,5 @@ const inputClass = computed(() => {
     :placeholder="props.placeholder"
     @input="event => {emit('update:modelValue', event.target.value)}"
   >
-  <small class="error">{{ props.error }}</small>
+  <p><small class="error">{{ props.error }}</small></p>
 </template>
