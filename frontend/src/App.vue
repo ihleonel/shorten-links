@@ -12,6 +12,11 @@ const { data, isLoading, error, shortener } = useShorten()
 const submit = () => {
   shortener('http://localhost:8000/shorter-url', form)
 }
+
+const copy = () => {
+  navigator.clipboard.writeText(data?.shorted)
+}
+
 </script>
 
 <template>
@@ -28,6 +33,12 @@ const submit = () => {
     @click.prevent="submit"
   >
     Shorten
+  </button>
+  <button
+    title="Copy"
+    @click="copy"
+  >
+    Copy
   </button>
   <div class="result">
     <span v-if="isLoading">
