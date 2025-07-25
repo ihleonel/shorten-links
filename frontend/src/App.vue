@@ -14,7 +14,7 @@ const submit = () => {
 }
 
 const copy = () => {
-  navigator.clipboard.writeText(data?.shorted)
+  navigator.clipboard.writeText(data.value.shorted)
 }
 
 </script>
